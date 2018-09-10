@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_question"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Question Question Question Question Question Question Question Question Question"/>
+
+
+        <CheckBox
+            android:id="@+id/cb_option1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Option1"/>
+
+        <CheckBox
+            android:id="@+id/cb_option2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Option2"/>
+
+        <CheckBox
+            android:id="@+id/cb_option3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Option3"/>
+
+        <CheckBox
+            android:id="@+id/cb_option4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Option4"/>
+
+
+</LinearLayout>
