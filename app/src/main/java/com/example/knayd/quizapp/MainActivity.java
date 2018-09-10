@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,10 +38,17 @@ public class MainActivity extends AppCompatActivity {
         rv.setLayoutManager(llm);
 
         //Fill the list with the questions
-        questionList.add(new Question("2+2 equals to?","4","3","2","0"));
-        questionList.add(new Question("3*3 equals to?","9","5","6","2"));
-        questionList.add(new Question("3*3+2+2 equals to?","13","21","15","None of the above"));
-        questionList.add(new Question("0*5^2+1*2 equals to?","2","6","8","0"));
+
+        //RB
+        questionList.add(new RadioButtonQuestion("2+2 equals to?","4","3","2","0"));
+        questionList.add(new RadioButtonQuestion("3*3 equals to?","9","5","6","2"));
+        questionList.add(new RadioButtonQuestion("3*3+2+2 equals to?","13","21","15","None of the above"));
+        questionList.add(new RadioButtonQuestion("0*5^2+1*2 equals to?","2","6","8","0"));
+        //CB
+        questionList.add(new CheckBoxQuestion("3+3 equals to?","2","6","8","0"));
+        questionList.add(new CheckBoxQuestion("4+4 equals to?","2","6","8","0"));
+        questionList.add(new CheckBoxQuestion("5+5 equals to?","2","6","8","0"));
+        questionList.add(new CheckBoxQuestion("6+6 equals to?","2","6","8","0"));
 
         //Do the adapter-magic
         QuestionAdapter adapter = new QuestionAdapter(questionList);
@@ -55,49 +63,91 @@ public class MainActivity extends AppCompatActivity {
 
                     //Gets the entire view by the position
                     View v = llm.findViewByPosition(i);
-                    //With that object, now I have access to the individual elements of the view
-                    RadioButton op1 = v.findViewById(R.id.rb_option1);
-                    RadioButton op2 = v.findViewById(R.id.rb_option2);
-                    RadioButton op3 = v.findViewById(R.id.rb_option3);
-                    RadioButton op4 = v.findViewById(R.id.rb_option4);
+                    //First, I check what kind of object is stored in the list which has to match with the one in the RV
 
+                    if(questionList.get(i) instanceof RadioButtonQuestion) {
+                        //With that object, now I have access to the individual elements of the view
+                        RadioButton op1 = v.findViewById(R.id.rb_option1);
+                        RadioButton op2 = v.findViewById(R.id.rb_option2);
+                        RadioButton op3 = v.findViewById(R.id.rb_option3);
+                        RadioButton op4 = v.findViewById(R.id.rb_option4);
 
-                    if (i==0){
-                        //Checks for the first question
-                        if(op1.isChecked()){
-                            correctAnswers+=1;
-                        } else {
-                            incorrectAnswers+=1;
-                            numberOfIncorrect += "N."+(i+1) + " ";
+                        if (i==0){
+                            //Checks for the first question
+                            if(op1.isChecked()){
+                                correctAnswers+=1;
+                            } else {
+                                incorrectAnswers+=1;
+                                numberOfIncorrect += "N."+(i+1) + " ";
+                            }
+                        } else if(i==1) {
+                            //Checks for the second question
+                            if(op1.isChecked()){
+                                correctAnswers+=1;
+                            } else {
+                                incorrectAnswers+=1;
+                                numberOfIncorrect += "N."+(i+1) + " ";
+                            }
+                        } else if(i==2) {
+                            //Checks for the third question
+                            if(op1.isChecked()){
+                                correctAnswers+=1;
+                            } else {
+                                incorrectAnswers+=1;
+                                numberOfIncorrect += "N."+(i+1) + " ";
+                            }
+                        } else if(i==3) {
+                            //Checks for the fourth question
+                            if(op1.isChecked()){
+                                correctAnswers+=1;
+                            } else {
+                                incorrectAnswers+=1;
+                                numberOfIncorrect += "N."+(i+1) + " ";
+                            }
                         }
-                    } else if(i==1) {
-                        //Checks for the second question
-                        if(op1.isChecked()){
-                            correctAnswers+=1;
-                        } else {
-                            incorrectAnswers+=1;
-                            numberOfIncorrect += "N."+(i+1) + " ";
-                        }
-                    } else if(i==2) {
-                        //Checks for the third question
-                        if(op1.isChecked()){
-                            correctAnswers+=1;
-                        } else {
-                            incorrectAnswers+=1;
-                            numberOfIncorrect += "N."+(i+1) + " ";
-                        }
-                    } else if(i==3) {
-                        //Checks for the fourth question
-                        if(op1.isChecked()){
-                            correctAnswers+=1;
-                        } else {
-                            incorrectAnswers+=1;
-                            numberOfIncorrect += "N."+(i+1) + " ";
+                    } else {
+                        //With that object, now I have access to the individual elements of the view
+                        CheckBox op1 = v.findViewById(R.id.cb_option1);
+                        CheckBox op2 = v.findViewById(R.id.cb_option2);
+                        CheckBox op3 = v.findViewById(R.id.cb_option3);
+                        CheckBox op4 = v.findViewById(R.id.cb_option4);
+
+                        if (i==0){
+                            //Checks for the fifth question
+                            if(op1.isChecked()){
+                                correctAnswers+=1;
+                            } else {
+                                incorrectAnswers+=1;
+                                numberOfIncorrect += "N."+(i+1) + " ";
+                            }
+                        } else if(i==1) {
+                            //Checks for the sixth question
+                            if(op1.isChecked()){
+                                correctAnswers+=1;
+                            } else {
+                                incorrectAnswers+=1;
+                                numberOfIncorrect += "N."+(i+1) + " ";
+                            }
+                        } else if(i==2) {
+                            //Checks for the seventh question
+                            if(op1.isChecked()){
+                                correctAnswers+=1;
+                            } else {
+                                incorrectAnswers+=1;
+                                numberOfIncorrect += "N."+(i+1) + " ";
+                            }
+                        } else if(i==3) {
+                            //Checks for the eighth question
+                            if(op1.isChecked()){
+                                correctAnswers+=1;
+                            } else {
+                                incorrectAnswers+=1;
+                                numberOfIncorrect += "N."+(i+1) + " ";
+                            }
                         }
                     }
 
                 }
-
 
                 //In case the user gets all the right answers
                 if(numberOfIncorrect.equals("")) {
