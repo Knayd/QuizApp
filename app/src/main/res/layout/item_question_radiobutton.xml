@@ -12,6 +12,7 @@
         android:text="Question Question Question Question Question Question Question Question Question"/>
 
     <RadioGroup
+        android:id="@+id/rg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
